@@ -37,3 +37,10 @@ Just modify a .json file and write it back just like a snap
     file_put_contents($file, json_encode($json, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 ```
 
+remove duplicate values from a multi-dimensional array
+```php
+    $input = array_map("unserialize", array_unique(array_map("serialize", $input)));
+    //or
+    $no_duplicates = array_intersect_key( $array , array_unique( array_map('serialize' , $array ) ) ); 
+```
+
